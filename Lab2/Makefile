@@ -1,14 +1,20 @@
-isOdd: isOdd.o
-	$(CC) isOdd.o -isOdd
+CC = gcc
+CFLAGS = -Wall -g
+TARGET = main
 
-isOdd.o: isOdd.h
-	$(CC) isOdd.h -isOdd.o
+all: $(TARGET)
 
-isOdd.h: isOdd.c
-	$(CC) isOdd.c -isOdd.h
+$(TARGET): main.o isOdd.o isEven.o
+	$(CC) $(CFLAGS) -o $(TARGET) main.o isOdd.o isEven.o
 
-isOdd.c:
-	return isOdd.c
+main.o: main.c isOdd.h isEven.h
+	$(CC) $(CFLAGS) -c main.c
+
+isOdd.o: isOdd.c isOdd.h
+	$(CC) $(CFLAGS) -c isOdd.c
+
+isEven.o: isEven.c isEven.h
+	$(CC) $(CFLAGS) -c isEven.c
 
 clean:
-	rm -rf *.o
+	rm -f *.o $(TARGET) $(TARGET).exe
