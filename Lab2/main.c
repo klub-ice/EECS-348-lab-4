@@ -1,11 +1,11 @@
-#include "isEven.h"
+#include "isOdd.h"
 
 #include <stdio.h>
 
 int main() {
     int num;
     printf("Enter an integer: ");
-    scanf_s("%d", &num);
-    isEven(num);
+    scanf("%d", &num);
+    isOdd(num);
     return 0;
 }
