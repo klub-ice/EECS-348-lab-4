@@ -11,4 +11,4 @@ isOdd.c:
 	return isOdd.c
 
 clean:
-	rm -rf *.o *.exe
+	rm -rf *.o
